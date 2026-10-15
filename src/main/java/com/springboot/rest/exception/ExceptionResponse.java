@@ -1,0 +1,14 @@
+package com.springboot.rest.exception;
+
+import java.util.Date;
+
+/**
+ * Corpo JSON padrão devolvido quando ocorre um erro na API.
+ * É um {@code record}: imutável, com construtor, getters e equals/hashCode gerados.
+ *
+ * @param timestamp momento em que o erro ocorreu
+ * @param menssage  mensagem da exceção (o nome do campo está com typo; vira a chave "menssage" no JSON)
+ * @param details   descrição da requisição (URI) que causou o erro
+ */
+public record ExceptionResponse (Date timestamp, String menssage, String details){
+}
