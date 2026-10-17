@@ -7,8 +7,8 @@ import java.util.Date;
  * É um {@code record}: imutável, com construtor, getters e equals/hashCode gerados.
  *
  * @param timestamp momento em que o erro ocorreu
- * @param menssage  mensagem da exceção (o nome do campo está com typo; vira a chave "menssage" no JSON)
+ * @param message   mensagem da exceção
  * @param details   descrição da requisição (URI) que causou o erro
  */
-public record ExceptionResponse (Date timestamp, String menssage, String details){
+public record ExceptionResponse (Date timestamp, String message, String details){
 }

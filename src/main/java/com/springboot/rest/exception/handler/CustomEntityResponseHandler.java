@@ -1,7 +1,7 @@
 package com.springboot.rest.exception.handler;
 
 import com.springboot.rest.exception.ExceptionResponse;
-import com.springboot.rest.exception.UnsupportedMathOperationException;
+import com.springboot.rest.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -35,12 +35,12 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
 
 
     /** Entrada inválida na operação matemática vira HTTP 400. O Spring escolhe o handler mais específico. */
-    @ExceptionHandler(UnsupportedMathOperationException.class)
-    public final ResponseEntity<ExceptionResponse> handlerBadRequestExceptions(Exception ex, WebRequest request){
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handlerNotFoundExceptions(Exception ex, WebRequest request){
         ExceptionResponse response = new ExceptionResponse(
                 new Date(),
                 ex.getMessage(),
                 request.getDescription(false));
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }

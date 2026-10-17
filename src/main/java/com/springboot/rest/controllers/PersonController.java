@@ -1,12 +1,12 @@
 package com.springboot.rest.controllers;
 
-import com.springboot.rest.PersonServices;
+import com.springboot.rest.services.PersonServices;
 import com.springboot.rest.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -16,23 +16,17 @@ public class PersonController {
     @Autowired
     private PersonServices services;
 
-    @RequestMapping(
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Person> findAll(){
         return services.findAll();
     }
 
-    @RequestMapping(value = "/{id}",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public Person findById(@PathVariable("id") String id) {
+    @RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Person findById(@PathVariable("id") Long id) {
         return services.findById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST,
+    @PostMapping(
     consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -40,7 +34,7 @@ public class PersonController {
         return services.create(person);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,
+    @PutMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -48,11 +42,10 @@ public class PersonController {
         return services.update(person);
     }
 
-    @RequestMapping(value = "/{id}",
-            method = RequestMethod.DELETE
-    )
-    public void delete (@PathVariable("id") String id) {
-        services.findById(id);
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> delete (@PathVariable("id") Long id) {
+        services.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 

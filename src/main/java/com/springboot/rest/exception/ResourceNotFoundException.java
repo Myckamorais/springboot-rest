@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * {@code @ResponseStatus(BAD_REQUEST)}, mas na prática quem monta a resposta é o
  * {@code CustomEntityResponseHandler}.
  */
-@ResponseStatus(HttpStatus.BAD_REQUEST)
-public class UnsupportedMathOperationException extends RuntimeException {
-    public UnsupportedMathOperationException(String message) {
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
         super(message);
     }
 }
