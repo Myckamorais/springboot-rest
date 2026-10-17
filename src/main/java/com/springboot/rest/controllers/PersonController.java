@@ -21,7 +21,7 @@ public class PersonController {
         return services.findAll();
     }
 
-    @RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Person findById(@PathVariable("id") Long id) {
         return services.findById(id);
     }
