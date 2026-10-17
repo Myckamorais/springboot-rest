@@ -16,6 +16,7 @@ public class PersonServices {
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
 
     public List<Person> findAll(){
+        logger.info("Finding all People!!");
         List <Person> persons = new ArrayList<>();
         for (int i = 0; i < 8; i ++){
             Person person = mockPerson(i);
@@ -27,7 +28,6 @@ public class PersonServices {
 
     public Person findById (String id){
         logger.info("Finding one Person!");
-
         Person person = new Person();
         person.setId(counter.incrementAndGet());
         person.setFirstName("Myckael");
@@ -36,6 +36,22 @@ public class PersonServices {
         person.setGender("Male");
         return person;
     }
+
+    public Person create (Person person){
+        logger.info("Creating Person!");
+        return person;
+    }
+
+    public Person update (Person person){
+        logger.info("Updating Person!");
+        return person;
+    }
+
+    public void delete (String id){
+        logger.info("Deleting one Person!");
+    }
+
+
 
     private Person mockPerson(int i) {
         Person person = new Person();
@@ -46,6 +62,8 @@ public class PersonServices {
         person.setGender("Male");
         return person;
     }
+
+
 
 
 }
