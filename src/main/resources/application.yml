@@ -12,3 +12,7 @@ spring:
     show-sql: true
     properties:
       hibernate:
+    open-in-view: false
+logging:
+  level:
+    com.springboot.rest: DEBUG
