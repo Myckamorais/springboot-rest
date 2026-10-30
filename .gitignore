@@ -84,3 +84,6 @@ application-local.yml
 
 # Spring Initializr
 HELP.md
+
+### Claude Code ###
+CLAUDE.md
