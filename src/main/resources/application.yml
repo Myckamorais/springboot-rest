@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/rest_erudio?useTimezone=true&serverTimezone=UTC
-    username: root
-    password: 20072019
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
