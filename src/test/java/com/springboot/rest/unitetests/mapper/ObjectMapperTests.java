@@ -1,6 +1,6 @@
 package com.springboot.rest.unitetests.mapper;
 
-import com.springboot.rest.data.dto.PersonDTO;
+import com.springboot.rest.data.dto.v1.PersonDTO;
 import com.springboot.rest.model.Person;
 import com.springboot.rest.unitetests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;
