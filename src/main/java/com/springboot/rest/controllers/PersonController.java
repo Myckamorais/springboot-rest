@@ -1,7 +1,7 @@
 package com.springboot.rest.controllers;
 
 import com.springboot.rest.data.dto.v1.PersonDTO;
-import com.springboot.rest.data.dto.v2.PersonDTOV2;
+// STAND BY (v2): import com.springboot.rest.data.dto.v2.PersonDTOV2;
 import com.springboot.rest.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -27,13 +27,22 @@ public class PersonController {
         return services.findById(id);
     }
 
-    @PostMapping(value = "/v2",
-    consumes = MediaType.APPLICATION_JSON_VALUE,
-    produces = MediaType.APPLICATION_JSON_VALUE
+    @PostMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public PersonDTOV2 create (@RequestBody PersonDTOV2 person){
-        return services.createV2(person);
+    public PersonDTO create (@RequestBody PersonDTO person){
+        return services.create(person);
     }
+
+    // STAND BY (v2): reativar junto com createV2 no PersonServices
+    // @PostMapping(value = "/v2",
+    // consumes = MediaType.APPLICATION_JSON_VALUE,
+    // produces = MediaType.APPLICATION_JSON_VALUE
+    // )
+    // public PersonDTOV2 createV2 (@RequestBody PersonDTOV2 person){
+    //     return services.createV2(person);
+    // }
 
     @PutMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
