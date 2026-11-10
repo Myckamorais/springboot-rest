@@ -21,7 +21,3 @@ Este repositório é o meu **treino e estudo** do curso de **API REST com Spring
 - Customização do JSON com Jackson (`@JsonProperty`, `@JsonPropertyOrder`)
 - Migrations de banco com Flyway
 - Logs com SLF4J
-
-## Aviso
-
-Projeto de aprendizado, sem compromisso de manutenção. Não use como base para produção.
