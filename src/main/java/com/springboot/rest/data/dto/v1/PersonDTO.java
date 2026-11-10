@@ -1,6 +1,5 @@
 package com.springboot.rest.data.dto.v1;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -21,7 +20,7 @@ public class PersonDTO implements Serializable {
     private String lastName;
     private String address;
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String gender;
 
     public PersonDTO() {
