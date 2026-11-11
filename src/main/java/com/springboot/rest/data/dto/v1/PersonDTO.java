@@ -33,7 +33,7 @@ public class PersonDTO implements Serializable {
     @JsonSerialize(using = GenderSerializer.class)
     private String gender;
 
-    private String SensitiveData;
+    private String sensitiveData;
 
     public PersonDTO() {
     }
@@ -87,11 +87,11 @@ public class PersonDTO implements Serializable {
     }
 
     public String getSensitiveData() {
-        return SensitiveData;
+        return sensitiveData;
     }
 
     public void setSensitiveData(String sensitiveData) {
-        SensitiveData = sensitiveData;
+        this.sensitiveData = sensitiveData;
     }
 
     @Override
